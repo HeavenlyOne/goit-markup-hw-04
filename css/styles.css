@@ -2,7 +2,8 @@
     --primary-backgroung-white: #FFFFFF;
     --primary-title-textcolor: #212121;
     --accent-color: #2196F3;
-    --text-color: #757575; 
+    --text-color: #757575;
+    --icon-color: #AFB1B8; 
 }
 
 html {
@@ -120,12 +121,16 @@ img {
 .nav-contacts .item + .item {
     margin-left: 40px;
 }
+.header-active {
+    color: var(--accent-color);
+}
 
 .link {
     display: inline-flex;
     align-items: center;
 
-    color: var(--text-color);
+/*    color: var(--text-color);*/
+    color: currentColor;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -135,32 +140,36 @@ img {
 
     text-decoration: none;
 }
-.icon-mail::before {
-    content: '';
-    height: 12px;
-    width: 16px;
-    margin-right: 10px;
-    background-image: url(../images/icons/envelope.svg);
-    background-repeat: no-repeat;
-    background-position: center;
+
+.contact-header {
+    display: flex;
+    align-items: center;
+    fill: currentColor;
 }
-.icon-tel::before {
-    content: '';
-    height: 16px;
+.contact-header > .link {
+    margin-left: 10px;
+}
+.icon-mail {
+    fill: currentColor;
+    width: 16px;
+    height: 12px;
+}
+.icon-phone {
     width: 10px;
-    margin-right: 10px;
-    background-image: url(../images/icons/smartphone.svg);
-    background-repeat: no-repeat;
-    background-position: center;
+    height: 16px;
+    fill: currentColor;
 }
 
+
 .site-nav:hover, 
-.link:hover
- {
+.contact-header:hover {
+    cursor: pointer;
     color: var(--accent-color);
 }
-.site-nav:focus,
-.link:focus {
+.site-nav:focus {
+    color: var(--accent-color);
+}
+.contact-header:focus-within {
     color: var(--accent-color);
 }
 .list {
@@ -236,9 +245,14 @@ img {
 }
 
 .hidden-adv {
-    display: block;
-    height: 0;
-    color: transparent;
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    margin-left: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
 }
 .disp-agile .item + .item {
     margin-left: 30px;
@@ -256,12 +270,14 @@ img {
 .icon-perevaga {
     width: 270px;
 }
+
+
 .icon-perevaga::before {
     display: block;
     margin-bottom: 30px;
     content: "";
     height: 120px;
-/*    width: 270px;*/
+
     background-color: #F5F4FA;
     background-repeat: no-repeat;
     background-position: center;
@@ -339,8 +355,8 @@ img {
 }
 .icon-spott {
     display: flex;
-   /* width: 44px;
-    height: 44px;*/
+    width: 44px;
+    height: 44px;
     
 /*    background-size: auto;*/
 /*    outline: 1px solid red;*/
@@ -350,19 +366,35 @@ img {
 .icon-spott:not(:first-child) {
     margin-left: 10px;
 }
-.icon-insta {
+
+.icon-group{ 
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    color: var(--icon-color);
+    border-radius: 50%;
+}
+.actual-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+/*.icon-insta {
     display: inline-block;
     background-image: url("../images/icons/instagram 2.svg");
-    width: 44px;
-    height: 44px;
+    width: 100%;
+    height: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20px;      
-}
-.icon-spott:hover {
+}*/
+.icon-group:hover {
     background-color: var(--accent-color);
+    color: var(--primary-backgroung-white);
 }
-.icon-twitter {
+/*.icon-twitter {
     display: inline-block;
     background-image: url("../images/icons/twitter 1.svg");
     width: 44px;
@@ -387,7 +419,7 @@ img {
     height: 44px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 20px;
+    background-size: 20px;*/
 }
 /*Our clients*/
 .our-clients {
@@ -397,10 +429,39 @@ img {
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
+    margin-bottom: 0;
     padding-left: 0;
+
+}
+.icon-clients {
+    display: flex;
+    width: 172px;
+    height: 92px;
+    border: 1px solid var(--icon-color);
+    border-radius: 4px;
 }
 
 .icon-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: var(--icon-color);
+}
+.icon-2 {
+    width: 106px;
+    height: 60px;
+    fill: currentColor;
+}
+.icon-1:hover {
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+}
+.our-clients {
+    padding: 94px 215px;
+}
+/*.icon-1 {
     display: inline-block;
     width: 170px;
     height: 92px;
@@ -470,7 +531,7 @@ img {
     background-position: center;
 
     border: 1px solid #AFB1B8;
-    border-radius: 4px;
+    border-radius: 4px;*/
 }
 
 /*Portfolio*/
